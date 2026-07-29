@@ -1,11 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
+
+const classes = [
+	{
+		name: 'Rise and Flow',
+		days: 'Tuesday & Thursday',
+		time: '6:30 – 7:30 AM',
+		location: 'Outdoors',
+		description: 'Energize your body, mobilize your mind, and rise strong. Start your day with intention.',
+	},
+	{
+		name: 'Power Flow',
+		days: 'Monday, Wednesday, Friday',
+		time: '12:10 – 12:50 PM',
+		location: 'Studio',
+		description: 'A focused, high-energy class to build strength, improve mobility, and power through your day.',
+	},
+	{
+		name: 'Recovery Flow',
+		days: 'Monday & Friday',
+		time: '7:00 – 7:45 PM',
+		location: 'Studio',
+		description: 'Release tension, restore balance, and recharge your body and mind for deep recovery.',
+	},
+	{
+		name: 'Full Body Flow',
+		days: 'Saturday',
+		time: '10:00 – 11:00 AM',
+		location: 'Studio',
+		description: 'A full body experience combining strength, mobility, and mindful movement to set the tone for your weekend.',
+	},
+];
 ---
 
 <Layout>
 	<PageHeader title="Classes" subtitle="Yoga · Mobility · Strength · Recovery" />
+
 	<main class="max-w-6xl mx-auto px-6 py-16">
-		<p class="text-brand-silver text-center">Class descriptions and schedule coming soon.</p>
+		<!-- INTRO -->
+		<div class="text-center max-w-2xl mx-auto">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm">August Schedule</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Iron Flow @ Metroflex
+			</h2>
+			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
+				Every class is built for every level. Whether you're brand new or a seasoned athlete, there's a place for you on the mat.
+			</p>
+		</div>
+
+		<!-- CLASS CARDS -->
+		<div class="mt-16 grid gap-6 md:grid-cols-2">
+			{classes.map(cls => (
+				<div class="border border-white/10 p-8 hover:border-brand-cyan transition-colors">
+					<div class="flex items-baseline justify-between gap-4">
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{cls.name}</h3>
+						<span class="text-xs text-brand-cyan uppercase tracking-widest whitespace-nowrap">{cls.location}</span>
+					</div>
+					<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">{cls.days}</p>
+					<p class="mt-1 text-white font-display text-lg">{cls.time}</p>
+					<p class="mt-6 text-brand-silver leading-relaxed">{cls.description}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- NOTE -->
+		<div class="mt-16 text-center max-w-2xl mx-auto">
+			<p class="text-sm text-brand-silver/70 italic">
+				Schedule may vary month to month. Follow along on Instagram for the latest updates.
+			</p>
+		</div>
+
+		<!-- CTA -->
+		<div class="mt-16 border-t border-white/10 pt-16 text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Ready To Flow?
+			</h2>
+			<p class="mt-4 text-brand-silver text-lg">
+				Reach out and let's get you on the mat.
+			</p>
+			<a href="/contact" class="mt-8 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+				Get In Touch
+			</a>
+		</div>
 	</main>
 </Layout>
