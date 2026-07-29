@@ -10,13 +10,15 @@ const navLinks = [
 ];
 ---
 
-<header class="border-b border-white/10 bg-brand-black">
+<header class="border-b border-white/10 bg-brand-black relative">
 	<div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 		<a href="/" class="flex items-center gap-3">
 			<Image src={logo} alt="Iron Flow Wellness" width={48} height={48} class="rounded-full" />
-			<span class="font-display font-bold text-xl tracking-wide">IRON FLOW WELLNESS</span>
+			<span class="font-display font-bold text-base md:text-xl tracking-wide">IRON FLOW WELLNESS</span>
 		</a>
-		<nav>
+
+		<!-- Desktop nav (hidden on mobile) -->
+		<nav class="hidden md:block">
 			<ul class="flex gap-8">
 				{navLinks.map(link => (
 					<li>
@@ -27,5 +29,33 @@ const navLinks = [
 				))}
 			</ul>
 		</nav>
+
+		<!-- Mobile hamburger button (shown only on mobile) -->
+		<button id="menu-toggle" class="md:hidden text-white p-2 -mr-2" aria-label="Toggle menu">
+			<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		</button>
 	</div>
+
+	<!-- Mobile menu (hidden by default, shown when toggled) -->
+	<nav id="mobile-menu" class="hidden md:hidden border-t border-white/10">
+		<ul class="flex flex-col px-6 py-4 space-y-4">
+			{navLinks.map(link => (
+				<li>
+					<a href={link.href} class="block text-sm uppercase tracking-widest text-brand-silver hover:text-brand-cyan transition-colors">
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+	</nav>
 </header>
+
+<script>
+	const toggle = document.getElementById('menu-toggle');
+	const menu = document.getElementById('mobile-menu');
+	toggle?.addEventListener('click', () => {
+		menu?.classList.toggle('hidden');
+	});
+</script>
