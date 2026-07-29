@@ -18,10 +18,15 @@ Iron Flow blends bodybuilding and yoga, offering classes that support strength a
 ## Structure
 
 src/
+
 ├── assets/ Images (logo, instructor photo)
+
 ├── components/ Reusable pieces (Header, Footer, PageHeader)
+
 ├── layouts/ Shared page frame (Layout.astro)
+
 ├── pages/ One file per URL: index, classes, about, contact
+
 └── styles/ Global CSS and Tailwind theme
 
 
