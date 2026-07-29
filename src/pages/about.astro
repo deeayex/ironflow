@@ -1,11 +1,157 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { Image } from 'astro:assets';
+import brandi from '../assets/brandi.png';
+
+const pillars = [
+	{ name: 'Strength', description: 'Supporting athletic performance while maintaining healthy movement.' },
+	{ name: 'Mobility', description: 'Developing usable range of motion that improves lifting mechanics and everyday function.' },
+	{ name: 'Recovery', description: 'Helping the body repair, adapt, and perform at its highest level.' },
+	{ name: 'Resilience', description: 'Building mental focus, consistency, confidence, and self-awareness.' },
+	{ name: 'Community', description: 'Creating an encouraging environment where everyone feels welcome.' },
+];
 ---
 
 <Layout>
-	<PageHeader title="About" subtitle="Move With Purpose" />
-	<main class="max-w-6xl mx-auto px-6 py-16">
-		<p class="text-brand-silver text-center">Her story, coming soon.</p>
+	<PageHeader title="About" subtitle="Strength In Motion · Recovery With Purpose" />
+
+	<main class="max-w-4xl mx-auto px-6 py-16">
+		<!-- INTRO -->
+		<section class="text-center">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm">Meet Your Instructor</p>
+			<h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
+				Brandi Kelty
+			</h2>
+			<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">
+				200-Hour Certified Yoga Instructor
+			</p>
+			<div class="mt-12 flex justify-center">
+				<Image
+					src={brandi}
+					alt="Brandi Kelty, Iron Flow Wellness instructor"
+					width={480}
+					height={480}
+					class="rounded-lg border border-white/10"
+				/>
+			</div>
+		</section>
+
+		<!-- STORY -->
+		<section class="mt-20 space-y-6 text-brand-silver text-lg leading-relaxed">
+			<p>
+				There was a time in my life when I believed strength meant handling everything on my own. I measured success by what I could accomplish, how hard I could push, and whether I appeared to have everything together.
+			</p>
+			<p>Recovery taught me something completely different.</p>
+			<p>
+				It taught me that strength begins with honesty. It grows through humility. It is sustained by grace. Healing didn't happen because I became stronger on my own. It happened because I surrendered, accepted help, and learned to trust God one day at a time.
+			</p>
+			<p>That journey changed every part of my life, including the way I approach fitness.</p>
+		</section>
+
+		<!-- LIFTING TO YOGA -->
+		<section class="mt-16 space-y-6 text-brand-silver text-lg leading-relaxed">
+			<h3 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase text-white">
+				Lifting Challenged My Body. Yoga Challenged My Heart.
+			</h3>
+			<p>
+				As someone who genuinely loves lifting weights, I understand why many people are skeptical of yoga. I used to think it was mostly about flexibility. My own experience completely changed that perspective.
+			</p>
+			<p>
+				The more I incorporated yoga into my lifting routine, the more I noticed improvements in my mobility, balance, breathing, recovery, body awareness, and even my performance under the bar. Yoga didn't make me weaker. It made me move better.
+			</p>
+			<p>That realization inspired Iron Flow.</p>
+		</section>
+
+		<!-- WHAT IRON FLOW IS -->
+		<section class="mt-16 space-y-6 text-brand-silver text-lg leading-relaxed">
+			<h3 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase text-white">
+				What Iron Flow Really Is
+			</h3>
+			<p>
+				Iron Flow is a yoga program designed for strength athletes, bodybuilders, powerlifters, everyday gym members, and beginners alike. This isn't about turning lifters into yogis. It's about helping strong people stay strong.
+			</p>
+			<p>
+				Every class blends mobility, stability, breathwork, flexibility, balance, recovery, and mindfulness into movement that directly supports performance in the gym and longevity outside of it.
+			</p>
+		</section>
+
+		<!-- FIVE PILLARS -->
+		<section class="mt-20">
+			<div class="text-center">
+				<p class="text-brand-cyan uppercase tracking-widest text-sm">The Foundation</p>
+				<h3 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+					Five Pillars
+				</h3>
+			</div>
+			<div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+				{pillars.map(pillar => (
+					<div class="border border-white/10 p-6 hover:border-brand-cyan transition-colors">
+						<h4 class="font-display text-lg font-bold uppercase tracking-widest text-brand-cyan">{pillar.name}</h4>
+						<p class="mt-3 text-sm text-brand-silver leading-relaxed">{pillar.description}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- FAITH / HEART -->
+		<section class="mt-20 border-t border-white/10 pt-20">
+			<div class="text-center">
+				<p class="text-brand-cyan uppercase tracking-widest text-sm">The Heart Of Iron Flow</p>
+				<h3 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+					More Than A Class
+				</h3>
+			</div>
+			<div class="mt-12 space-y-6 text-brand-silver text-lg leading-relaxed">
+				<p>
+					Iron Flow is more than a yoga class. It is the intersection of my faith, my recovery, and my belief that true strength is built from the inside out.
+				</p>
+				<p>
+					I no longer see movement as something I do to punish my body or earn my worth. I see it as a way of honoring the incredible gift God has given me. My faith reminds me that my body is not simply something I possess. It is something I have been entrusted to care for.
+				</p>
+				<p>
+					Iron Flow will always be a place where people are welcomed exactly as they are. Whether someone walks in carrying physical pain, emotional burdens, stress, self-doubt, or simply sore muscles after leg day, my hope is that they leave feeling stronger, lighter, and more hopeful than when they arrived.
+				</p>
+				<p>
+					I don't expect everyone who comes to class to share my faith. But I do hope everyone experiences the love, kindness, patience, and encouragement that my faith has taught me to offer.
+				</p>
+			</div>
+
+			<div class="mt-12 text-center">
+				<p class="font-display italic text-brand-cyan text-xl">
+					"Above all, love each other deeply."
+				</p>
+				<p class="mt-2 text-brand-silver text-sm uppercase tracking-widest">
+					1 Peter 4:8
+				</p>
+			</div>
+		</section>
+
+		<!-- CLOSING TAGLINE -->
+		<section class="mt-20 border-t border-white/10 pt-20 text-center">
+			<h3 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase leading-tight">
+				Train Hard.<br />
+				Recover Intentionally.<br />
+				Live Fully.
+			</h3>
+			<p class="mt-8 text-brand-silver text-lg max-w-2xl mx-auto leading-relaxed">
+				This is the heart of Iron Flow. Not through perfection, but through presence. Not through performance, but through purpose.
+			</p>
+		</section>
+
+		<!-- CTA -->
+		<section class="mt-20 text-center">
+			<p class="text-brand-silver text-lg mb-8">
+				Come as you are. Leave a little stronger.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/classes" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					View Classes
+				</a>
+				<a href="/contact" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
+					Get In Touch
+				</a>
+			</div>
+		</section>
 	</main>
 </Layout>
