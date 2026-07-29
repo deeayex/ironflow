@@ -1,12 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 ---
 
 <Layout>
-	<main class="min-h-[70vh] flex items-center justify-center">
-		<div class="text-center">
-			<h1 class="text-6xl font-display font-bold tracking-tight">IRON FLOW</h1>
-			<p class="mt-4 text-brand-cyan uppercase tracking-widest">Move With Purpose</p>
+	<!-- HERO -->
+	<section class="min-h-[80vh] flex items-center justify-center px-6 py-20">
+		<div class="max-w-3xl text-center">
+			<Image src={logo} alt="Iron Flow Wellness" width={320} height={320} class="mx-auto rounded-full" />
+			<p class="mt-8 text-brand-cyan uppercase tracking-widest text-sm">Move With Purpose</p>
+			<h1 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
+				Where Strength Meets Mobility
+			</h1>
+			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
+				Yoga, mobility, strength, and recovery. Built for every body, from brand new to seasoned athlete.
+			</p>
+			<a href="/classes" class="mt-10 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+				View Classes
+			</a>
 		</div>
-	</main>
+	</section>
+
+	<!-- MISSION -->
+	<section class="border-t border-white/10 py-20 px-6">
+		<div class="max-w-3xl mx-auto text-center">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm">The Vision</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				You Don't Have To Choose
+			</h2>
+			<div class="mt-8 text-brand-silver text-lg leading-relaxed space-y-4">
+				<p>Between being strong and being agile.</p>
+				<p>Between lifting heavy and moving well.</p>
+				<p>Between building muscle and finding peace.</p>
+				<p class="pt-4 text-white">
+					Iron Flow brings it all together. Fitness meets recovery, strength meets stillness, and every body is welcome at every level.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- FOUR PILLARS -->
+	<section class="border-t border-white/10 py-20 px-6">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center">
+				<p class="text-brand-cyan uppercase tracking-widest text-sm">What We Offer</p>
+				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+					Four Ways To Move
+				</h2>
+			</div>
+			<div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
+					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Yoga</h3>
+					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Build flexibility, breath, and mindful movement.</p>
+				</div>
+				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
+					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Mobility</h3>
+					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Move better, unlock range, and prevent injury.</p>
+				</div>
+				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
+					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Strength</h3>
+					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Get stronger with focused, functional training.</p>
+				</div>
+				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
+					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Recovery</h3>
+					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Restore, release tension, and recharge fully.</p>
+				</div>
+			</div>
+			<div class="mt-12 text-center">
+				<a href="/classes" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
+					See the class schedule →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- VALUES / SCRIPTURE -->
+	<section class="border-t border-white/10 py-20 px-6">
+		<div class="max-w-3xl mx-auto text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Faith. Strength. Purpose.
+			</h2>
+			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
+				Iron Flow is built on the belief that faith and fitness belong together. Strengthen your body, calm your mind, fuel your purpose.
+			</p>
+			<p class="mt-10 font-display italic text-brand-cyan text-xl">
+				"Iron sharpens iron."
+			</p>
+			<p class="mt-2 text-brand-silver text-sm uppercase tracking-widest">
+				Proverbs 27:17
+			</p>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="border-t border-white/10 py-20 px-6">
+		<div class="max-w-3xl mx-auto text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Join The Movement
+			</h2>
+			<p class="mt-4 text-brand-silver text-lg">
+				Located at Metroflex Gym in Ardmore, OK.
+			</p>
+			<a href="/contact" class="mt-8 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+				Get In Touch
+			</a>
+		</div>
+	</section>
 </Layout>
