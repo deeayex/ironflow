@@ -2,35 +2,89 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
-const classes = [
+const metroflexClasses = [
 	{
-		name: 'Rise and Flow',
-		days: 'Tuesday & Thursday',
-		time: '6:30 – 7:30 AM',
-		location: 'Outdoors',
-		description: 'Energize your body, mobilize your mind, and rise strong. Start your day with intention.',
-	},
-	{
-		name: 'Power Flow',
+		name: 'Lunch Power Flow',
 		days: 'Monday, Wednesday, Friday',
 		time: '12:10 – 12:50 PM',
-		location: 'Studio',
-		description: 'A focused, high-energy class to build strength, improve mobility, and power through your day.',
+		description: 'Refresh. Refocus. Recharge. A focused, high-energy class to build strength, improve mobility, and power through your day.',
 	},
 	{
-		name: 'Recovery Flow',
+		name: 'Evening Flow',
 		days: 'Monday & Friday',
-		time: '7:00 – 7:45 PM',
-		location: 'Studio',
-		description: 'Release tension, restore balance, and recharge your body and mind for deep recovery.',
+		time: '5:30 – 6:30 PM',
+		description: 'Unwind. Stretch. Reset. Release tension and recharge your body and mind for deep recovery.',
 	},
 	{
 		name: 'Full Body Flow',
 		days: 'Saturday',
-		time: '10:00 – 11:00 AM',
-		location: 'Studio',
-		description: 'A full body experience combining strength, mobility, and mindful movement to set the tone for your weekend.',
+		time: '10:30 – 11:30 AM',
+		description: 'Move. Strengthen. Thrive. A full body experience combining strength, mobility, and mindful movement.',
 	},
+];
+
+const studioClasses = [
+	{
+		name: 'Rise + Flow',
+		days: 'Tuesday & Thursday',
+		time: '6:30 – 7:15 AM',
+		description: 'Energize your body, mobilize your mind, and rise strong. Start your day with intention.',
+	},
+	{
+		name: 'Strength + Mobility Flow',
+		days: 'Tuesday',
+		time: '5:30 – 6:30 PM',
+		description: 'A focused blend of strength work and mobility flow to close out your day.',
+	},
+	{
+		name: 'Sunday Reset + Restore',
+		days: 'Sunday',
+		time: '6:00 – 7:00 PM',
+		description: 'Release tension, restore balance, and recharge your body and mind for the week ahead.',
+	},
+	{
+		name: 'Private / Outdoor / Boat Yoga',
+		days: 'Saturday',
+		time: 'By Request',
+		description: 'Perfect for small groups, events, and special occasions.',
+	},
+];
+
+const dropInPricing = [
+	{ name: 'Virtual Drop-In', price: '$10' },
+	{ name: 'Semi-Private Studio Drop-In', price: '$20' },
+	{ name: '5 Virtual Classes', price: '$40' },
+	{ name: '5 Studio Classes', price: '$85' },
+];
+
+const memberships = [
+	{
+		name: 'Virtual',
+		price: '$39',
+		features: ['Unlimited live virtual classes', 'On-demand library access'],
+	},
+	{
+		name: 'Iron Flow',
+		price: '$69',
+		features: ['4 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access'],
+		featured: true,
+	},
+	{
+		name: 'Iron Flow Plus',
+		price: '$109',
+		features: ['8 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access', 'Priority studio booking'],
+	},
+];
+
+const personalTraining = [
+	{ name: 'Initial Consultation + Fitness Assessment', price: '$35' },
+	{ name: '30-Minute 1:1 Session', price: '$35' },
+	{ name: '60-Minute 1:1 Session', price: '$55' },
+	{ name: '4 × 60-Minute Sessions', price: '$200' },
+	{ name: '8 × 60-Minute Sessions', price: '$380' },
+	{ name: '12 × 60-Minute Sessions', price: '$540' },
+	{ name: 'Partner Training – 60 min', price: '$35/person' },
+	{ name: 'Semi-Private Training – up to 3', price: '$25/person' },
 ];
 ---
 
@@ -40,28 +94,110 @@ const classes = [
 	<main class="max-w-6xl mx-auto px-6 py-16">
 		<!-- INTRO -->
 		<div class="text-center max-w-2xl mx-auto">
-			<p class="text-brand-cyan uppercase tracking-widest text-sm">August Schedule</p>
-			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-				Iron Flow @ Metroflex
-			</h2>
 			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
 				Every class is built for every level. Whether you're brand new or a seasoned athlete, there's a place for you on the mat.
+				All fitness levels welcome — you do not need to be fit before you start.
 			</p>
 		</div>
 
-		<!-- CLASS CARDS -->
-		<div class="mt-16 grid gap-6 md:grid-cols-2">
-			{classes.map(cls => (
-				<div class="border border-white/10 p-8 hover:border-brand-cyan transition-colors">
-					<div class="flex items-baseline justify-between gap-4">
+		<!-- METROFLEX SCHEDULE -->
+		<div class="mt-16">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Iron Flow at Metroflex</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Metroflex Gym Schedule
+			</h2>
+			<div class="mt-10 grid gap-6 md:grid-cols-2">
+				{metroflexClasses.map(cls => (
+					<div class="border border-white/10 p-8 hover:border-brand-cyan transition-colors">
 						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{cls.name}</h3>
-						<span class="text-xs text-brand-cyan uppercase tracking-widest whitespace-nowrap">{cls.location}</span>
+						<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">{cls.days}</p>
+						<p class="mt-1 text-white font-display text-lg">{cls.time}</p>
+						<p class="mt-6 text-brand-silver leading-relaxed">{cls.description}</p>
 					</div>
-					<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">{cls.days}</p>
-					<p class="mt-1 text-white font-display text-lg">{cls.time}</p>
-					<p class="mt-6 text-brand-silver leading-relaxed">{cls.description}</p>
-				</div>
-			))}
+				))}
+			</div>
+		</div>
+
+		<!-- STUDIO SCHEDULE -->
+		<div class="mt-24">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Semi-Private Studio · Virtual Option Available</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Studio Schedule
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">300 E Main, Suite 5, Ardmore, OK · In-studio classes limited to 3</p>
+			<div class="mt-10 grid gap-6 md:grid-cols-2">
+				{studioClasses.map(cls => (
+					<div class="border border-white/10 p-8 hover:border-brand-cyan transition-colors">
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{cls.name}</h3>
+						<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">{cls.days}</p>
+						<p class="mt-1 text-white font-display text-lg">{cls.time}</p>
+						<p class="mt-6 text-brand-silver leading-relaxed">{cls.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- DROP-IN PRICING -->
+		<div class="mt-24">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Drop-In Pricing
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Virtual classes are live on Zoom. Links sent upon booking.</p>
+			<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				{dropInPricing.map(item => (
+					<div class="border border-white/10 p-6 text-center hover:border-brand-cyan transition-colors">
+						<p class="font-display text-3xl font-bold text-brand-cyan">{item.price}</p>
+						<p class="mt-2 text-brand-silver uppercase tracking-widest text-sm">{item.name}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- MEMBERSHIPS -->
+		<div class="mt-24">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Memberships
+			</h2>
+			<div class="mt-10 grid gap-6 md:grid-cols-3">
+				{memberships.map(plan => (
+					<div class={`border p-8 flex flex-col ${plan.featured ? 'border-brand-cyan' : 'border-white/10'}`}>
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{plan.name}</h3>
+						<p class="mt-2 font-display text-4xl font-bold text-brand-cyan">{plan.price}<span class="text-base text-brand-silver">/mo</span></p>
+						<ul class="mt-6 space-y-2 text-brand-silver leading-relaxed flex-1">
+							{plan.features.map(f => <li>{f}</li>)}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- PERSONAL TRAINING -->
+		<div class="mt-24" id="personal-training">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Personal Training
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Packages available.</p>
+			<div class="mt-10 max-w-2xl mx-auto divide-y divide-white/10 border border-white/10">
+				{personalTraining.map(item => (
+					<div class="flex items-center justify-between px-6 py-4">
+						<span class="text-brand-silver">{item.name}</span>
+						<span class="font-display font-bold text-brand-cyan whitespace-nowrap ml-4">{item.price}</span>
+					</div>
+				))}
+			</div>
+
+			<!-- TRAIN + FLOW BUNDLE -->
+			<div class="mt-10 max-w-md mx-auto border border-brand-cyan p-8 text-center">
+				<h3 class="font-display text-2xl font-bold uppercase tracking-widest">Strong + Flow</h3>
+				<p class="mt-2 font-display text-4xl font-bold text-brand-cyan">$129<span class="text-base text-brand-silver">/mo</span></p>
+				<ul class="mt-6 space-y-2 text-brand-silver leading-relaxed text-left">
+					<li>2 private training sessions/month</li>
+					<li>4 semi-private studio classes/month</li>
+					<li>Unlimited virtual classes</li>
+					<li>On-demand library access</li>
+					<li>Personalized fitness guidance</li>
+				</ul>
+			</div>
 		</div>
 
 		<!-- NOTE -->
