@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const dropInPricing = [
+	{ name: 'Virtual Drop-In', price: '$10' },
+	{ name: 'Semi-Private Studio Drop-In', price: '$20' },
+	{ name: '5 Virtual Classes', price: '$40' },
+	{ name: '5 Studio Classes', price: '$85' },
+];
+
+const memberships = [
+	{
+		name: 'Virtual',
+		price: '$39',
+		features: ['Unlimited live virtual classes', 'On-demand library access'],
+	},
+	{
+		name: 'Iron Flow',
+		price: '$69',
+		features: ['4 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access'],
+		featured: true,
+	},
+	{
+		name: 'Iron Flow Plus',
+		price: '$109',
+		features: ['8 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access', 'Priority studio booking'],
+	},
+];
+
+const personalTraining = [
+	{ name: 'Initial Consultation + Fitness Assessment', price: '$35' },
+	{ name: '30-Minute 1:1 Session', price: '$35' },
+	{ name: '60-Minute 1:1 Session', price: '$55' },
+	{ name: '4 × 60-Minute Sessions', price: '$200' },
+	{ name: '8 × 60-Minute Sessions', price: '$380' },
+	{ name: '12 × 60-Minute Sessions', price: '$540' },
+	{ name: 'Partner Training – 60 min', price: '$35/person' },
+	{ name: 'Semi-Private Training – up to 3', price: '$25/person' },
+];
+---
+
+<Layout>
+	<PageHeader title="Booking" subtitle="Memberships · Drop-Ins · Personal Training" />
+
+	<main class="max-w-6xl mx-auto px-6 py-16">
+		<!-- INTRO -->
+		<div class="text-center max-w-2xl mx-auto">
+			<p class="text-brand-silver text-lg leading-relaxed">
+				Find the option that fits you and reserve your spot. Semi-private studio classes are limited to 3 people.
+			</p>
+		</div>
+
+		<!-- DROP-IN PRICING -->
+		<div class="mt-16">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Drop-In Pricing
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Virtual classes are live on Zoom. Links sent upon booking.</p>
+			<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				{dropInPricing.map(item => (
+					<div class="border border-white/10 p-6 text-center hover:border-brand-cyan transition-colors">
+						<p class="font-display text-3xl font-bold text-brand-cyan">{item.price}</p>
+						<p class="mt-2 text-brand-silver uppercase tracking-widest text-sm">{item.name}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- MEMBERSHIPS -->
+		<div class="mt-24">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Memberships
+			</h2>
+			<div class="mt-10 grid gap-6 md:grid-cols-3">
+				{memberships.map(plan => (
+					<div class={`border p-8 flex flex-col ${plan.featured ? 'border-brand-cyan' : 'border-white/10'}`}>
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{plan.name}</h3>
+						<p class="mt-2 font-display text-4xl font-bold text-brand-cyan">{plan.price}<span class="text-base text-brand-silver">/mo</span></p>
+						<ul class="mt-6 space-y-2 text-brand-silver leading-relaxed flex-1">
+							{plan.features.map(f => <li>{f}</li>)}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- PERSONAL TRAINING -->
+		<div class="mt-24" id="personal-training">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Personal Training
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Packages available.</p>
+			<div class="mt-10 max-w-2xl mx-auto divide-y divide-white/10 border border-white/10">
+				{personalTraining.map(item => (
+					<div class="flex items-center justify-between px-6 py-4">
+						<span class="text-brand-silver">{item.name}</span>
+						<span class="font-display font-bold text-brand-cyan whitespace-nowrap ml-4">{item.price}</span>
+					</div>
+				))}
+			</div>
+
+			<!-- TRAIN + FLOW BUNDLE -->
+			<div class="mt-10 max-w-md mx-auto border border-brand-cyan p-8 text-center">
+				<h3 class="font-display text-2xl font-bold uppercase tracking-widest">Strong + Flow</h3>
+				<p class="mt-2 font-display text-4xl font-bold text-brand-cyan">$129<span class="text-base text-brand-silver">/mo</span></p>
+				<ul class="mt-6 space-y-2 text-brand-silver leading-relaxed text-left">
+					<li>2 private training sessions/month</li>
+					<li>4 semi-private studio classes/month</li>
+					<li>Unlimited virtual classes</li>
+					<li>On-demand library access</li>
+					<li>Personalized fitness guidance</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- CTA -->
+		<div class="mt-24 border-t border-white/10 pt-16 text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Ready To Book Your Spot?
+			</h2>
+			<p class="mt-4 text-brand-silver text-lg">
+				300 E Main, Suite 5, Ardmore, OK
+			</p>
+			<a href="/contact" class="mt-8 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+				Get In Touch
+			</a>
+		</div>
+	</main>
+</Layout>
