@@ -2,6 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
+import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
+
+const ways = [
+	{
+		name: 'Live Classes',
+		description: 'Yoga, mobility, and strength flows in person at Metroflex, downtown Ardmore, and the lake, or live from home over Zoom.',
+		cta: 'Sign me up',
+		href: '/offerings',
+	},
+	{
+		name: 'On-Demand',
+		description: 'A library of recorded classes you can stream anytime, included with every monthly membership.',
+		cta: 'Join now',
+		href: '/packages',
+	},
+	{
+		name: 'Privates',
+		description: 'One-on-one, partner, and small-group personal training built around your goals and your pace.',
+		cta: 'Learn more',
+		href: '/packages#personal-training',
+	},
+];
 ---
 
 <Layout>
@@ -16,9 +38,47 @@ import logo from '../assets/logo.png';
 			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
 				Yoga, mobility, strength, and recovery. Built for every body, from brand new to seasoned athlete.
 			</p>
-			<a href="/classes" class="mt-10 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-				View Classes
+			<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="#schedule" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					View Schedule
+				</a>
+				<a href="/offerings" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
+					Explore Offerings
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- NEW MEMBER OFFER -->
+	<section class="bg-brand-cyan text-brand-black px-6 py-8">
+		<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+			<p class="font-display text-xl md:text-2xl font-bold uppercase tracking-wide">
+				New here? Get introductory membership pricing for your first 3 months.
+			</p>
+			<a href="/packages" class="inline-block bg-brand-black text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-brand-black transition-colors whitespace-nowrap">
+				See Memberships
 			</a>
+		</div>
+	</section>
+
+	<!-- LIVE SCHEDULE -->
+	<section id="schedule" class="py-20 px-6 scroll-mt-4">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center">
+				<p class="text-brand-cyan uppercase tracking-widest text-sm">This Week</p>
+				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+					Live Class Schedule
+				</h2>
+				<p class="mt-4 text-brand-silver">Pick a class and register right here.</p>
+			</div>
+			<div class="mt-10">
+				<OfferingTreeEmbed path="schedule" id="ot-schedule-embed" title="Iron Flow live class schedule" height={900} />
+			</div>
+			<div class="mt-8 text-center">
+				<a href="https://ironflow.offeringtree.com/schedule" target="_blank" rel="noopener noreferrer" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
+					View full schedule →
+				</a>
+			</div>
 		</div>
 	</section>
 
@@ -40,71 +100,25 @@ import logo from '../assets/logo.png';
 		</div>
 	</section>
 
-	<!-- FOUR PILLARS -->
+	<!-- THREE WAYS TO TRAIN -->
 	<section class="border-t border-white/10 py-20 px-6">
 		<div class="max-w-6xl mx-auto">
 			<div class="text-center">
 				<p class="text-brand-cyan uppercase tracking-widest text-sm">What We Offer</p>
 				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-					Four Ways To Move
+					Three Ways To Train
 				</h2>
-			</div>
-			<div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Yoga</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Build flexibility, breath, and mindful movement.</p>
-				</div>
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Mobility</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Move better, unlock range, and prevent injury.</p>
-				</div>
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Strength</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Get stronger with focused, functional training.</p>
-				</div>
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Recovery</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Restore, release tension, and recharge fully.</p>
-				</div>
-			</div>
-			<div class="mt-12 text-center">
-				<a href="/classes" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
-					See the class schedule →
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- PERSONAL TRAINING -->
-	<section class="border-t border-white/10 py-20 px-6">
-		<div class="max-w-6xl mx-auto">
-			<div class="text-center">
-				<p class="text-brand-cyan uppercase tracking-widest text-sm">Go One-On-One</p>
-				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-					Personal Training
-				</h2>
-				<p class="mt-6 max-w-2xl mx-auto text-brand-silver text-lg leading-relaxed">
-					Want more focused, individualized attention? Train one-on-one, with a partner, or in a small semi-private group — tailored to your goals, at your pace.
-				</p>
 			</div>
 			<div class="mt-12 grid gap-6 md:grid-cols-3">
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">1:1 Sessions</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Fully personalized training, from a single session to a full package.</p>
-				</div>
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Partner Training</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">Bring a friend and split the focus — and the cost.</p>
-				</div>
-				<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors">
-					<h3 class="font-display text-xl font-bold uppercase tracking-widest">Strong + Flow</h3>
-					<p class="mt-3 text-sm text-brand-silver leading-relaxed">A monthly bundle combining private training with semi-private studio classes.</p>
-				</div>
-			</div>
-			<div class="mt-12 text-center">
-				<a href="/booking#personal-training" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
-					See training rates →
-				</a>
+				{ways.map(way => (
+					<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors flex flex-col">
+						<h3 class="font-display text-xl font-bold uppercase tracking-widest">{way.name}</h3>
+						<p class="mt-3 text-sm text-brand-silver leading-relaxed flex-1">{way.description}</p>
+						<a href={way.href} class="mt-6 text-brand-cyan uppercase tracking-widest text-xs hover:text-white transition-colors">
+							{way.cta} →
+						</a>
+					</div>
+				))}
 			</div>
 		</div>
 	</section>

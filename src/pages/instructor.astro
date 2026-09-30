@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { Image } from 'astro:assets';
+import brandi from '../assets/brandi.png';
+---
+
+<Layout>
+	<PageHeader title="Meet Brandi" subtitle="Owner and Instructor, Iron Flow Health & Wellness" />
+
+	<main class="max-w-6xl mx-auto px-6 py-16">
+		<div class="grid gap-12 md:grid-cols-5 md:gap-16 items-start">
+			<!-- PHOTO -->
+			<div class="md:col-span-2 md:sticky md:top-8">
+				<Image
+					src={brandi}
+					alt="Brandi Kelty, owner and instructor of Iron Flow Health & Wellness"
+					width={560}
+					class="w-full max-w-sm mx-auto md:max-w-none rounded-lg border border-white/10"
+				/>
+				<div class="mt-6 text-center">
+					<p class="font-display text-2xl font-bold uppercase tracking-wide">Brandi Kelty</p>
+					<p class="mt-1 text-brand-cyan uppercase tracking-widest text-xs">Ardmore, Oklahoma</p>
+				</div>
+			</div>
+
+			<!-- STORY -->
+			<div class="md:col-span-3 space-y-6 text-brand-silver text-lg leading-relaxed">
+				<p>
+					I’m Brandi Kelty, the founder of Iron Flow Health &amp; Wellness in Ardmore, Oklahoma. My path here has taken me through education, leadership, coaching, hospice service, recovery, strength training, and yoga. Iron Flow brings those parts of my life together in a welcoming space where people can build strength, improve mobility, and feel more at home in their bodies.
+				</p>
+				<p>
+					Before starting Iron Flow, I spent more than 20 years in public education, including serving as one of Oklahoma’s youngest female superintendents. I also taught aspiring school principals as a college professor and coached track and basketball. Those experiences taught me how to meet people where they are, help them build on their strengths, and encourage them as they work toward their goals.
+				</p>
+				<p>
+					I hold a bachelor’s degree in Special Education, a master’s degree in Educational Leadership, and an Education Specialist degree in District Leadership. I’m currently pursuing a master’s degree in Addictions Counseling. I’m also a 200-hour certified yoga teacher, NASM Certified Personal Trainer, and NASM Wellness Coach.
+				</p>
+				<p>
+					My own recovery has deeply shaped the way I teach and serve. I’ve been sober since December 7, 2024, and I know that growth happens one day, one choice, and one step at a time. Yoga and strength training have become important parts of my own practice—not because anyone needs to move or look a certain way, but because movement can help us build strength, awareness, balance, and confidence.
+				</p>
+				<p>
+					At Iron Flow, you’ll find yoga and mobility classes, personal training, meditation, and outdoor experiences. I welcome people with different backgrounds, faiths, fitness levels, and reasons for showing up. Your practice is your practice. My hope is that you leave feeling a little stronger, a little more mobile, and glad you made time for yourself.
+				</p>
+				<p>
+					Outside the studio, I’m a wife and mom in a blended family with five children. My family keeps me grounded and reminds me that life is full of different seasons, challenges, and reasons to keep growing. I love lifting, practicing yoga, spending time outdoors and at the lake, and sharing life with our dogs. My faith and recovery community are also important parts of who I am and the way I approach my work.
+				</p>
+			</div>
+		</div>
+
+		<!-- TAGLINE + CTA -->
+		<section class="mt-24 border-t border-white/10 pt-20 text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Where strength and mobility meet.
+			</h2>
+			<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/offerings" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					See Offerings
+				</a>
+				<a href="/contact" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
+					Get In Touch
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>

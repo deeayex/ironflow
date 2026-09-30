@@ -1,0 +1,21 @@
+---
+// Embeds a page from Brandi's OfferingTree site (schedule, offerings, packages).
+// OfferingTree's script resizes the iframe to fit its content automatically.
+interface Props {
+	path: 'schedule' | 'offerings' | 'offering_packages';
+	id: string; // must be unique on the page
+	height?: number; // starting height before it auto-resizes
+	title: string;
+}
+
+const { path, id, height = 800, title } = Astro.props;
+const src = `https://ironflow.offeringtree.com/${path}?embed=true`;
+---
+
+<iframe id={id} src={src} title={title} width="100%" height={height} style="border:0" loading="lazy"></iframe>
+<script
+	is:inline
+	id={`${id}-script`}
+	src="https://ironflow.offeringtree.com/embedjs/ot_embed.js"
+	data-component={id}
+></script>

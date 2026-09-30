@@ -19,22 +19,23 @@ const pillars = [
 	<main class="max-w-4xl mx-auto px-6 py-16">
 		<!-- INTRO -->
 		<section class="text-center">
-			<p class="text-brand-cyan uppercase tracking-widest text-sm">Meet Your Instructor</p>
+			<p class="text-brand-cyan uppercase tracking-widest text-sm">The Story Behind</p>
 			<h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
-				Brandi Kelty
+				Iron Flow
 			</h2>
-			<p class="mt-4 text-brand-silver uppercase tracking-widest text-sm">
-				200-Hour Certified Yoga Instructor
-			</p>
-			<div class="mt-12 flex justify-center">
+			<a href="/instructor" class="mt-10 inline-flex items-center gap-4 border border-white/10 p-3 pr-6 hover:border-brand-cyan transition-colors text-left">
 				<Image
 					src={brandi}
-					alt="Brandi Kelty, Iron Flow Wellness instructor"
-					width={480}
-					height={480}
-					class="rounded-lg border border-white/10"
+					alt="Brandi Kelty"
+					width={64}
+					height={64}
+					class="w-16 h-16 rounded-full object-cover object-top"
 				/>
-			</div>
+				<span>
+					<span class="block font-display font-bold uppercase tracking-widest">Brandi Kelty</span>
+					<span class="block text-brand-cyan uppercase tracking-widest text-xs mt-1">Meet the owner &amp; instructor →</span>
+				</span>
+			</a>
 		</section>
 
 		<!-- STORY -->
@@ -145,8 +146,8 @@ const pillars = [
 				Come as you are. Leave a little stronger.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/classes" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-					View Classes
+				<a href="/offerings" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					View Offerings
 				</a>
 				<a href="/contact" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
 					Get In Touch

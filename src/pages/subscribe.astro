@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+// OfferingTree's subscribe form can't be embedded on its own, so this page
+// sends people to the OfferingTree site (Subscribe button in its top menu)
+// or lets them email Brandi directly.
+const mailto =
+	'mailto:Bkelty@ironflowwellness.com' +
+	'?subject=' + encodeURIComponent('Subscribe me to Iron Flow emails') +
+	'&body=' + encodeURIComponent('Hi Brandi,\n\nPlease add me to the Iron Flow email list for news and promotions.\n\nName:\n');
+---
+
+<Layout>
+	<PageHeader title="Subscribe" subtitle="Emails · Promotions · Class Updates" />
+
+	<main class="max-w-4xl mx-auto px-6 py-16">
+		<div class="text-center max-w-2xl mx-auto">
+			<p class="text-brand-silver text-lg leading-relaxed">
+				Be the first to hear about new classes, specials, events, and schedule changes.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-6 md:grid-cols-2">
+			<div class="border border-brand-cyan p-8 flex flex-col">
+				<h2 class="font-display text-xl font-bold uppercase tracking-widest">Subscribe Online</h2>
+				<p class="mt-4 text-brand-silver leading-relaxed flex-1">
+					Our booking site opens in a new tab. Tap <span class="text-white">Subscribe</span> at the top of the page and enter your email.
+				</p>
+				<a href="https://ironflow.offeringtree.com/" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block text-center bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					Go To Subscribe
+				</a>
+			</div>
+
+			<div class="border border-white/10 p-8 flex flex-col hover:border-brand-cyan transition-colors">
+				<h2 class="font-display text-xl font-bold uppercase tracking-widest">Or Email Us</h2>
+				<p class="mt-4 text-brand-silver leading-relaxed flex-1">
+					Send a quick email and Brandi will add you to the list.
+				</p>
+				<a href={mailto} class="mt-8 inline-block text-center border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
+					Email To Subscribe
+				</a>
+			</div>
+		</div>
+	</main>
+</Layout>

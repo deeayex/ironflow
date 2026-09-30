@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
+
+const classes = [
+	{
+		name: 'Rise + Flow',
+		where: 'Studio · 300 E Main, Downtown Ardmore',
+		description: 'Energize your body, mobilize your mind, and rise strong. Start your day with intention.',
+	},
+	{
+		name: 'Lunch Power Flow',
+		where: 'Metroflex Gym',
+		description: 'Refresh. Refocus. Recharge. A focused, high-energy class to build strength, improve mobility, and power through your day.',
+	},
+	{
+		name: 'Post Work Day Flow',
+		where: 'Metroflex Gym',
+		description: 'Unwind. Stretch. Reset. Release tension and recharge your body and mind for deep recovery.',
+	},
+	{
+		name: 'Full Body Flow',
+		where: 'Metroflex Gym',
+		description: 'Move. Strengthen. Thrive. A full body experience combining strength, mobility, and mindful movement.',
+	},
+	{
+		name: 'Sunrise Lake Yoga',
+		where: 'Lake Murray',
+		description: 'Greet the day outdoors with breath, mobility, and flow by the water.',
+	},
+	{
+		name: 'Reset + Restore',
+		where: 'Lake Murray',
+		description: 'Release tension, restore balance, and recharge your body and mind for the week ahead.',
+	},
+];
+
+const more = [
+	{ name: 'Virtual Classes', description: 'Join live classes from home, plus an on-demand library you can stream anytime.' },
+	{ name: 'Personal Training', description: 'One-on-one, partner, and semi-private training tailored to your goals, at your pace.' },
+	{ name: 'Meditation & Specialty', description: 'Meditation, sound healing, trauma-informed yoga, and more.' },
+	{ name: 'Private, Outdoor & Boat Yoga', description: 'Perfect for small groups, events, and special occasions. Pricing available on request.' },
+];
+---
+
+<Layout>
+	<PageHeader title="Offerings" subtitle="Yoga · Mobility · Strength · Recovery" />
+
+	<main class="max-w-6xl mx-auto px-6 py-16">
+		<!-- INTRO -->
+		<div class="text-center max-w-2xl mx-auto">
+			<p class="text-brand-silver text-lg leading-relaxed">
+				Every class is built for every level. Whether you're brand new or a seasoned athlete, there's a place for you on the mat.
+				All fitness levels welcome — you do not need to be fit before you start.
+			</p>
+		</div>
+
+		<!-- CLASSES -->
+		<div class="mt-16">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Studio · Gym · Outdoors</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Classes
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Semi-private studio classes are limited to 3 people.</p>
+			<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{classes.map(cls => (
+					<div class="border border-white/10 p-8 hover:border-brand-cyan transition-colors">
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{cls.name}</h3>
+						<p class="mt-3 text-brand-cyan uppercase tracking-widest text-xs">{cls.where}</p>
+						<p class="mt-5 text-brand-silver leading-relaxed">{cls.description}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-10 text-center">
+				<a href="/#schedule" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
+					See this week's schedule →
+				</a>
+			</div>
+		</div>
+
+		<!-- MORE WAYS -->
+		<div class="mt-24">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				More Ways To Train
+			</h2>
+			<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+				{more.map(item => (
+					<div class="border border-white/10 p-6 hover:border-brand-cyan transition-colors">
+						<h3 class="font-display text-lg font-bold uppercase tracking-widest">{item.name}</h3>
+						<p class="mt-3 text-sm text-brand-silver leading-relaxed">{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- OFFERINGTREE -->
+		<div class="mt-24 border-t border-white/10 pt-16 text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Book Your Spot
+			</h2>
+			<p class="mt-4 text-brand-silver text-lg">
+				300 E Main, Suite 5, Ardmore, OK
+			</p>
+			<div class="mt-10 max-w-3xl mx-auto">
+				<OfferingTreeEmbed path="offerings" id="ot-offerings-embed" title="Iron Flow offerings" />
+			</div>
+			<p class="mt-10 text-brand-silver">
+				Looking for pricing? <a href="/packages" class="text-brand-cyan hover:text-white transition-colors">See packages &amp; memberships →</a>
+			</p>
+		</div>
+	</main>
+</Layout>

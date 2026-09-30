@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
+
+// Prices match OfferingTree (ironflow.offeringtree.com/offering_packages).
+// If a price changes there, update it here too.
+const memberships = [
+	{
+		name: 'Virtual',
+		price: '$39',
+		features: ['Unlimited live virtual classes', 'On-demand library access'],
+	},
+	{
+		name: 'Iron Flow',
+		price: '$69',
+		features: ['4 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access'],
+		featured: true,
+	},
+	{
+		name: 'Iron Flow Plus',
+		price: '$89',
+		features: [
+			'8 semi-private studio classes/month',
+			'Unlimited virtual classes',
+			'On-demand library access',
+			'Priority studio booking',
+			'2 specialty classes/month (meditation, sound healing, trauma-informed yoga, and more)',
+		],
+	},
+	{
+		name: 'Train + Flow',
+		price: '$129',
+		features: [
+			'2 private training sessions/month',
+			'4 semi-private studio classes/month',
+			'Unlimited virtual classes',
+			'On-demand library access',
+			'Personalized fitness guidance',
+		],
+	},
+];
+
+const classPackages = [
+	{ name: 'Virtual Drop-In', price: '$10' },
+	{ name: 'Semi-Private Studio Drop-In', price: '$20', note: 'Limit 3 per class' },
+	{ name: '5 Virtual Classes', price: '$40', note: 'Expires in 1 month' },
+	{ name: '5 Semi-Private Studio Classes', price: '$80', note: 'Expires in 1 month' },
+];
+
+const personalTraining = [
+	{ name: '1:1 Personal Training', price: '$40', note: '60-minute session' },
+	{ name: '4 × 60-Minute Sessions', price: '$140', note: 'Use within 1 month' },
+	{ name: 'Partner Training (2:1)', price: '$30/person', note: '60-minute session' },
+	{ name: 'Semi-Private Training (up to 3)', price: '$25/person', note: '60-minute session' },
+];
+---
+
+<Layout>
+	<PageHeader title="Packages & Memberships" subtitle="Memberships · Drop-Ins · Personal Training" />
+
+	<main class="max-w-6xl mx-auto px-6 py-16">
+		<!-- INTRO -->
+		<div class="text-center max-w-2xl mx-auto">
+			<p class="text-brand-silver text-lg leading-relaxed">
+				Find the option that fits you. Semi-private studio classes are limited to 3 people.
+			</p>
+		</div>
+
+		<!-- MEMBERSHIPS -->
+		<section class="mt-16">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Renews Monthly</p>
+			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
+				Memberships
+			</h2>
+			<p class="mt-2 text-brand-silver text-center text-sm">Introductory pricing available for your first 3 months.</p>
+			<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+				{memberships.map(m => (
+					<div class:list={[
+						'border p-8 flex flex-col transition-colors',
+						m.featured ? 'border-brand-cyan' : 'border-white/10 hover:border-brand-cyan',
+					]}>
+						{m.featured && <p class="text-brand-cyan uppercase tracking-widest text-xs mb-3">Most Popular</p>}
+						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{m.name}</h3>
+						<p class="mt-4">
+							<span class="font-display text-4xl font-bold">{m.price}</span>
+							<span class="text-brand-silver text-sm">/month</span>
+						</p>
+						<ul class="mt-6 space-y-3 text-sm text-brand-silver leading-relaxed">
+							{m.features.map(f => (
+								<li class="flex gap-2"><span class="text-brand-cyan">✓</span><span>{f}</span></li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- CLASS PACKAGES + PERSONAL TRAINING -->
+		<div class="mt-24 grid gap-16 md:grid-cols-2">
+			<section>
+				<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Class Packages</h2>
+				<ul class="mt-6 divide-y divide-white/10 border-y border-white/10">
+					{classPackages.map(p => (
+						<li class="py-4 flex items-baseline justify-between gap-4">
+							<span>
+								<span class="block text-white">{p.name}</span>
+								{p.note && <span class="block text-xs text-brand-silver uppercase tracking-widest mt-1">{p.note}</span>}
+							</span>
+							<span class="font-display text-xl font-bold whitespace-nowrap">{p.price}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section id="personal-training" class="scroll-mt-4">
+				<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Personal Training</h2>
+				<ul class="mt-6 divide-y divide-white/10 border-y border-white/10">
+					{personalTraining.map(p => (
+						<li class="py-4 flex items-baseline justify-between gap-4">
+							<span>
+								<span class="block text-white">{p.name}</span>
+								{p.note && <span class="block text-xs text-brand-silver uppercase tracking-widest mt-1">{p.note}</span>}
+							</span>
+							<span class="font-display text-xl font-bold whitespace-nowrap">{p.price}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+		</div>
+
+		<p class="mt-10 text-center text-brand-silver">
+			Private, outdoor, and boat yoga for groups and events: pricing and package specials available on request.
+			<a href="/contact" class="text-brand-cyan hover:text-white transition-colors">Get in touch →</a>
+		</p>
+
+		<!-- BUY -->
+		<div class="mt-24 border-t border-white/10 pt-16 text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
+				Ready To Get Started?
+			</h2>
+			<p class="mt-4 text-brand-silver text-lg">
+				Purchase a membership or package below.
+			</p>
+			<div class="mt-10 max-w-3xl mx-auto">
+				<OfferingTreeEmbed path="offering_packages" id="ot-packages-embed" title="Iron Flow packages and memberships" />
+			</div>
+		</div>
+	</main>
+</Layout>
