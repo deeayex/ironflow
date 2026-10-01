@@ -75,10 +75,23 @@ import PageHeader from '../components/PageHeader.astro';
 		<!-- LOCATION -->
 		<div class="mt-16 border-t border-white/10 pt-16 text-center">
 			<p class="text-brand-cyan uppercase tracking-widest text-sm">Find Us</p>
-			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-				Metroflex Gym
-			</h2>
-			<p class="mt-4 text-brand-silver text-lg">Ardmore, OK</p>
+			<div class="mt-10 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+				<a href="https://www.google.com/maps/search/?api=1&query=300+E+Main+St+Suite+5+Ardmore+OK" target="_blank" rel="noopener noreferrer" class="group border border-white/10 p-8 hover:border-brand-cyan transition-colors">
+					<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Iron Flow Studio</h2>
+					<p class="mt-4 text-brand-silver text-lg group-hover:text-white transition-colors">
+						300 E Main, Suite 5<br />
+						Ardmore, OK
+					</p>
+					<p class="mt-4 text-brand-cyan uppercase tracking-widest text-xs">Get directions →</p>
+				</a>
+				<a href="https://www.google.com/maps/search/?api=1&query=Metroflex+Gym+Ardmore+OK" target="_blank" rel="noopener noreferrer" class="group border border-white/10 p-8 hover:border-brand-cyan transition-colors">
+					<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Metroflex Gym</h2>
+					<p class="mt-4 text-brand-silver text-lg group-hover:text-white transition-colors">
+						Ardmore, OK
+					</p>
+					<p class="mt-4 text-brand-cyan uppercase tracking-widest text-xs">Get directions →</p>
+				</a>
+			</div>
 		</div>
 
 		<!-- CLOSING -->

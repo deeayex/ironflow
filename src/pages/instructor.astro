@@ -3,12 +3,37 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { Image } from 'astro:assets';
 import brandi from '../assets/brandi.png';
+
+const credentials = [
+	{ title: 'NASM Certified Personal Trainer', detail: 'National Academy of Sports Medicine' },
+	{ title: 'NASM Wellness Coach', detail: 'National Academy of Sports Medicine' },
+	{ title: '200-Hour Certified Yoga Teacher', detail: 'Yoga & mobility instruction' },
+	{ title: 'Education Specialist Degree', detail: 'District Leadership' },
+	{ title: 'Master’s Degree', detail: 'Educational Leadership' },
+	{ title: 'Bachelor’s Degree', detail: 'Special Education' },
+	{ title: 'Master’s in Addictions Counseling', detail: 'Currently pursuing' },
+	{ title: 'Former Superintendent', detail: '20+ years in Oklahoma public education' },
+	{ title: 'College Professor & Coach', detail: 'Taught aspiring principals · coached track and basketball' },
+];
 ---
 
 <Layout>
 	<PageHeader title="Meet Brandi" subtitle="Owner and Instructor, Iron Flow Health & Wellness" />
 
 	<main class="max-w-6xl mx-auto px-6 py-16">
+		<!-- QUALIFICATIONS -->
+		<section class="mb-16">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Credentials</p>
+			<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{credentials.map(c => (
+					<div class="border border-white/10 p-5 hover:border-brand-cyan transition-colors">
+						<p class="font-display font-bold uppercase tracking-wide text-white">{c.title}</p>
+						<p class="mt-1 text-sm text-brand-silver">{c.detail}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
 		<div class="grid gap-12 md:grid-cols-5 md:gap-16 items-start">
 			<!-- PHOTO -->
 			<div class="md:col-span-2 md:sticky md:top-8">
