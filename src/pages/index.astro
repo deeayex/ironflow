@@ -4,6 +4,9 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
 import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
 
+// Where the "Watch On Demand" button goes (Brandi's OfferingTree video library).
+const onDemandUrl = 'https://ironflow.offeringtree.com/online_store';
+
 const ways = [
 	{
 		name: 'Live Classes',
@@ -14,8 +17,8 @@ const ways = [
 	{
 		name: 'On-Demand',
 		description: 'A library of recorded classes you can stream anytime, included with every monthly membership.',
-		cta: 'Join now',
-		href: '/packages',
+		cta: 'Watch now',
+		href: '#on-demand',
 	},
 	{
 		name: 'Privates',
@@ -119,6 +122,27 @@ const ways = [
 						</a>
 					</div>
 				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ON DEMAND -->
+	<section id="on-demand" class="border-t border-white/10 py-24 px-6 scroll-mt-4 bg-gradient-to-b from-brand-cyan/10 to-transparent">
+		<div class="max-w-3xl mx-auto text-center">
+			<p class="text-brand-cyan uppercase tracking-widest text-sm">Can't Make It To Class?</p>
+			<h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
+				Watch On Demand
+			</h2>
+			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
+				Recorded Iron Flow classes you can stream from home or on the go, anytime. Included with every monthly membership.
+			</p>
+			<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={onDemandUrl} target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
+					Video On-Demand Library
+				</a>
+				<a href="/packages" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
+					See Memberships
+				</a>
 			</div>
 		</div>
 	</section>
