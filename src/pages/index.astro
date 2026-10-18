@@ -10,20 +10,20 @@ const onDemandUrl = 'https://ironflow.offeringtree.com/online_store';
 const ways = [
 	{
 		name: 'Live Classes',
-		description: 'Yoga, mobility, and strength flows in person at Metroflex, downtown Ardmore, and the lake, or live from home over Zoom.',
-		cta: 'Sign me up',
+		description: 'Yoga, mobility, and strength flows at Iron Flow Studio and Metroflex, or live from home over Zoom.',
+		cta: 'See offerings',
 		href: '/offerings',
 	},
 	{
 		name: 'On-Demand',
-		description: 'A library of recorded classes you can stream anytime, included with every monthly membership.',
+		description: 'Recorded classes you can stream anytime, included with every monthly membership.',
 		cta: 'Watch now',
 		href: '#on-demand',
 	},
 	{
-		name: 'Privates',
-		description: 'One-on-one, partner, and small-group personal training built around your goals and your pace.',
-		cta: 'Learn more',
+		name: 'Personal Training',
+		description: 'One-on-one, partner, and small-group training built around your goals and your pace.',
+		cta: 'See rates',
 		href: '/packages#personal-training',
 	},
 ];
@@ -31,152 +31,116 @@ const ways = [
 
 <Layout>
 	<!-- HERO -->
-	<section class="min-h-[80vh] flex items-center justify-center px-6 py-20">
-		<div class="max-w-3xl text-center">
-			<Image src={logo} alt="Iron Flow Wellness" width={320} height={320} class="mx-auto rounded-full" />
-			<p class="mt-8 text-brand-cyan uppercase tracking-widest text-sm">Move With Purpose</p>
-			<h1 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
-				Where Strength Meets Mobility
-			</h1>
-			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
-				Yoga, mobility, strength, and recovery. Built for every body, from brand new to seasoned athlete.
-			</p>
-			<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="#schedule" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-					View Schedule
-				</a>
-				<a href="/offerings" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
-					Explore Offerings
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- NEW MEMBER OFFER -->
-	<section class="bg-brand-cyan text-brand-black px-6 py-8">
-		<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-			<p class="font-display text-xl md:text-2xl font-bold uppercase tracking-wide">
-				New here? Get introductory membership pricing for your first 3 months.
-			</p>
-			<a href="/packages" class="inline-block bg-brand-black text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-brand-black transition-colors whitespace-nowrap">
-				See Memberships
-			</a>
-		</div>
-	</section>
-
-	<!-- LIVE SCHEDULE -->
-	<section id="schedule" class="py-20 px-6 scroll-mt-4">
-		<div class="max-w-4xl mx-auto">
-			<div class="text-center">
-				<p class="text-brand-cyan uppercase tracking-widest text-sm">This Week</p>
-				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-					Live Class Schedule
-				</h2>
-				<p class="mt-4 text-brand-silver">Pick a class and register right here.</p>
-			</div>
-			<div class="mt-10">
-				<OfferingTreeEmbed path="schedule" id="ot-schedule-embed" title="Iron Flow live class schedule" height={900} />
-			</div>
-			<div class="mt-8 text-center">
-				<a href="https://ironflow.offeringtree.com/schedule" target="_blank" rel="noopener noreferrer" class="text-brand-cyan uppercase tracking-widest text-sm hover:text-white transition-colors">
-					View full schedule →
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- MISSION -->
-	<section class="border-t border-white/10 py-20 px-6">
-		<div class="max-w-3xl mx-auto text-center">
-			<p class="text-brand-cyan uppercase tracking-widest text-sm">The Vision</p>
-			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-				You Don't Have To Choose
-			</h2>
-			<div class="mt-8 text-brand-silver text-lg leading-relaxed space-y-4">
-				<p>Between being strong and being agile.</p>
-				<p>Between lifting heavy and moving well.</p>
-				<p>Between building muscle and finding peace.</p>
-				<p class="pt-4 text-white">
-					Iron Flow brings it all together. Fitness meets recovery, strength meets stillness, and every body is welcome at every level.
+	<section class="px-6 py-16 md:py-24">
+		<div class="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+			<div class="text-center md:text-left order-2 md:order-1">
+				<p class="eyebrow">Move With Purpose</p>
+				<h1 class="mt-4 font-display text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-[1.05]">
+					Where Strength<br class="hidden md:block" /> Meets Mobility
+				</h1>
+				<p class="mt-6 text-brand-silver text-lg leading-relaxed max-w-md mx-auto md:mx-0">
+					Yoga, mobility, strength, and recovery in Ardmore, OK. Built for every body, from brand new to seasoned athlete.
 				</p>
+				<div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+					<a href="#schedule" class="btn-primary">View Schedule</a>
+					<a href="/packages" class="btn-secondary">Memberships</a>
+				</div>
+				<p class="mt-6 text-sm text-brand-silver">
+					New here? <a href="/packages" class="text-brand-cyan hover:text-white transition-colors">Intro pricing for your first 3 months →</a>
+				</p>
+			</div>
+			<div class="order-1 md:order-2 flex justify-center">
+				<Image src={logo} alt="Iron Flow Health & Wellness" width={420} height={420} class="w-56 md:w-full max-w-sm rounded-full" loading="eager" />
 			</div>
 		</div>
 	</section>
 
 	<!-- THREE WAYS TO TRAIN -->
-	<section class="border-t border-white/10 py-20 px-6">
+	<section class="px-6 py-16 md:py-20 border-t border-white/10">
 		<div class="max-w-6xl mx-auto">
-			<div class="text-center">
-				<p class="text-brand-cyan uppercase tracking-widest text-sm">What We Offer</p>
-				<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-					Three Ways To Train
-				</h2>
-			</div>
-			<div class="mt-12 grid gap-6 md:grid-cols-3">
-				{ways.map(way => (
-					<div class="border border-white/10 p-8 text-center hover:border-brand-cyan transition-colors flex flex-col">
-						<h3 class="font-display text-xl font-bold uppercase tracking-widest">{way.name}</h3>
-						<p class="mt-3 text-sm text-brand-silver leading-relaxed flex-1">{way.description}</p>
-						<a href={way.href} class="mt-6 text-brand-cyan uppercase tracking-widest text-xs hover:text-white transition-colors">
-							{way.cta} →
-						</a>
-					</div>
+			<p class="eyebrow">What We Offer</p>
+			<h2 class="mt-3 section-title">Three Ways To Train</h2>
+			<div class="mt-10 grid gap-5 md:grid-cols-3">
+				{ways.map((way, i) => (
+					<a href={way.href} class="group rounded-xl border border-white/10 bg-white/[0.03] p-7 flex flex-col hover:border-brand-cyan transition-colors">
+						<span class="font-display text-brand-cyan text-sm">0{i + 1}</span>
+						<h3 class="mt-2 font-display text-2xl font-bold uppercase tracking-wide">{way.name}</h3>
+						<p class="mt-3 text-brand-silver leading-relaxed flex-1">{way.description}</p>
+						<span class="mt-6 text-link group-hover:text-white">{way.cta} →</span>
+					</a>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- ON DEMAND -->
-	<section id="on-demand" class="border-t border-white/10 py-24 px-6 scroll-mt-4 bg-gradient-to-b from-brand-cyan/10 to-transparent">
-		<div class="max-w-3xl mx-auto text-center">
-			<p class="text-brand-cyan uppercase tracking-widest text-sm">Can't Make It To Class?</p>
-			<h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">
-				Watch On Demand
-			</h2>
-			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
-				Recorded Iron Flow classes you can stream from home or on the go, anytime. Included with every monthly membership.
-			</p>
-			<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-				<a href={onDemandUrl} target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-					Video On-Demand Library
+	<!-- LIVE SCHEDULE -->
+	<section id="schedule" class="px-6 py-16 md:py-20 border-t border-white/10 scroll-mt-4">
+		<div class="max-w-6xl mx-auto">
+			<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+				<div>
+					<p class="eyebrow">This Week</p>
+					<h2 class="mt-3 section-title">Class Schedule</h2>
+					<p class="mt-3 text-brand-silver">Pick a class and register right here. Scroll inside the schedule to see more.</p>
+				</div>
+				<a href="https://ironflow.offeringtree.com/schedule" target="_blank" rel="noopener noreferrer" class="text-link whitespace-nowrap">
+					Open full schedule →
 				</a>
-				<a href="/packages" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
-					See Memberships
-				</a>
+			</div>
+			<div class="mt-8">
+				<OfferingTreeEmbed path="schedule" id="ot-schedule-embed" title="Iron Flow class schedule" height={640} maxHeight={640} />
 			</div>
 		</div>
 	</section>
 
-	<!-- VALUES / SCRIPTURE -->
-	<section class="border-t border-white/10 py-20 px-6">
-		<div class="max-w-3xl mx-auto text-center">
-			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-				Faith. Strength. Purpose.
-			</h2>
-			<p class="mt-6 text-brand-silver text-lg leading-relaxed">
-				Iron Flow is built on the belief that faith and fitness belong together. Strengthen your body, calm your mind, fuel your purpose.
-			</p>
-			<p class="mt-10 font-display italic text-brand-cyan text-xl">
-				"Iron sharpens iron."
-			</p>
-			<p class="mt-2 text-brand-silver text-sm uppercase tracking-widest">
-				Proverbs 27:17
-			</p>
+	<!-- ON DEMAND -->
+	<section id="on-demand" class="px-6 py-16 md:py-20 border-t border-white/10 scroll-mt-4">
+		<div class="max-w-6xl mx-auto rounded-2xl border border-brand-cyan/30 bg-gradient-to-br from-brand-cyan/15 to-transparent p-8 md:p-12 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+			<div>
+				<p class="eyebrow">Can't Make It To Class?</p>
+				<h2 class="mt-3 section-title">Watch On Demand</h2>
+				<p class="mt-4 text-brand-silver text-lg leading-relaxed max-w-xl">
+					Stream recorded Iron Flow classes from home or on the go. Included with every monthly membership.
+				</p>
+			</div>
+			<div class="flex flex-col gap-3">
+				<a href={onDemandUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">Video Library</a>
+				<a href="/packages" class="btn-secondary">See Memberships</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- APPROACH + FAITH -->
+	<section class="px-6 py-16 md:py-20 border-t border-white/10">
+		<div class="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+			<div>
+				<p class="eyebrow">The Vision</p>
+				<h2 class="mt-3 section-title">You Don't Have To Choose</h2>
+				<p class="mt-5 text-brand-silver text-lg leading-relaxed">
+					Between being strong and being agile. Between lifting heavy and moving well. Between building muscle and finding peace.
+				</p>
+				<p class="mt-4 text-white text-lg leading-relaxed">
+					Iron Flow brings it all together. Fitness meets recovery, strength meets stillness, and every body is welcome at every level.
+				</p>
+			</div>
+			<div class="rounded-2xl border border-white/10 p-8 md:p-10 text-center">
+				<p class="font-display text-2xl font-bold uppercase tracking-wide">Faith. Strength. Purpose.</p>
+				<p class="mt-6 font-display italic text-brand-cyan text-3xl">"Iron sharpens iron."</p>
+				<p class="mt-2 text-brand-silver text-xs uppercase tracking-widest">Proverbs 27:17</p>
+			</div>
 		</div>
 	</section>
 
 	<!-- CTA -->
-	<section class="border-t border-white/10 py-20 px-6">
+	<section class="px-6 py-16 md:py-20 border-t border-white/10">
 		<div class="max-w-3xl mx-auto text-center">
-			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-				Join The Movement
-			</h2>
+			<h2 class="section-title">Join The Movement</h2>
 			<p class="mt-4 text-brand-silver text-lg">
-				Located at Metroflex Gym in Ardmore, OK.
+				Classes at Iron Flow Studio (The Main Rail, downtown) and Metroflex in Ardmore, OK, or live online.
 			</p>
-			<a href="/contact" class="mt-8 inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-				Get In Touch
-			</a>
+			<div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="#schedule" class="btn-primary">Book A Class</a>
+				<a href="/contact" class="btn-secondary">Get In Touch</a>
+			</div>
 		</div>
 	</section>
 </Layout>

@@ -1,18 +1,25 @@
 ---
 // Embeds a page from Brandi's OfferingTree site (schedule, offerings, packages).
-// OfferingTree's script resizes the iframe to fit its content automatically.
+// OfferingTree's script resizes the iframe to fit its content. Pass `maxHeight`
+// to keep long embeds (like the schedule) in a fixed-height, scrollable frame
+// so they don't take over the page.
 interface Props {
 	path: 'schedule' | 'offerings' | 'offering_packages';
 	id: string; // must be unique on the page
 	height?: number; // starting height before it auto-resizes
+	maxHeight?: number; // cap the visible height (content scrolls inside)
 	title: string;
 }
 
-const { path, id, height = 800, title } = Astro.props;
+const { path, id, height = 800, maxHeight, title } = Astro.props;
 const src = `https://ironflow.offeringtree.com/${path}?embed=true`;
+// A CSS height overrides the height attribute OfferingTree's script sets.
+const style = maxHeight ? `border:0;display:block;height:${maxHeight}px` : 'border:0;display:block';
 ---
 
-<iframe id={id} src={src} title={title} width="100%" height={height} style="border:0" loading="lazy"></iframe>
+<div class="rounded-xl overflow-hidden border border-white/10 bg-white">
+	<iframe id={id} src={src} title={title} width="100%" height={height} style={style} loading="lazy"></iframe>
+</div>
 <script
 	is:inline
 	id={`${id}-script`}

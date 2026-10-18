@@ -9,8 +9,31 @@
 	--font-body: "Inter", sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: var(--font-body);
 	background-color: var(--color-brand-black);
 	color: white;
+}
+
+/* Shared building blocks so every page uses the same buttons and headings */
+@layer components {
+	.btn-primary {
+		@apply inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-md hover:bg-white transition-colors text-center;
+	}
+	.btn-secondary {
+		@apply inline-block border border-white/25 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-md hover:border-brand-cyan hover:text-brand-cyan transition-colors text-center;
+	}
+	.eyebrow {
+		@apply text-brand-cyan uppercase tracking-[0.2em] text-xs font-semibold;
+	}
+	.section-title {
+		@apply font-display text-3xl md:text-4xl font-bold tracking-tight uppercase;
+	}
+	.text-link {
+		@apply text-brand-cyan uppercase tracking-widest text-xs font-semibold hover:text-white transition-colors;
+	}
 }

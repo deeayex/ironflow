@@ -3,37 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
 
-// Prices match OfferingTree (ironflow.offeringtree.com/offering_packages).
-// If a price changes there, update it here too.
+// Names and prices match OfferingTree (ironflow.offeringtree.com/offering_packages).
+// If something changes there, update it here too.
 const memberships = [
 	{
-		name: 'Virtual',
+		name: 'Virtual Monthly Membership',
 		price: '$39',
+		intro: '$30/month for your first 3 months',
 		features: ['Unlimited live virtual classes', 'On-demand library access'],
 	},
 	{
-		name: 'Iron Flow',
+		name: 'Iron Flow Studio Monthly Membership',
 		price: '$69',
-		features: ['4 semi-private studio classes/month', 'Unlimited virtual classes', 'On-demand library access'],
-		featured: true,
+		intro: '$60/month for your first 3 months',
+		features: ['4 semi-private studio classes', 'Unlimited virtual classes', 'On-demand library access'],
 	},
 	{
 		name: 'Iron Flow Plus',
 		price: '$89',
 		features: [
-			'8 semi-private studio classes/month',
+			'8 semi-private studio classes per month',
 			'Unlimited virtual classes',
 			'On-demand library access',
 			'Priority studio booking',
-			'2 specialty classes/month (meditation, sound healing, trauma-informed yoga, and more)',
+			'2 specialty classes per month (meditation, sound healing, trauma-informed yoga, and more on request)',
 		],
 	},
 	{
 		name: 'Train + Flow',
 		price: '$129',
 		features: [
-			'2 private training sessions/month',
-			'4 semi-private studio classes/month',
+			'2 private training sessions per month',
+			'4 semi-private studio classes per month',
 			'Unlimited virtual classes',
 			'On-demand library access',
 			'Personalized fitness guidance',
@@ -45,14 +46,23 @@ const classPackages = [
 	{ name: 'Virtual Drop-In', price: '$10' },
 	{ name: 'Semi-Private Studio Drop-In', price: '$20', note: 'Limit 3 per class' },
 	{ name: '5 Virtual Classes', price: '$40', note: 'Expires in 1 month' },
-	{ name: '5 Semi-Private Studio Classes', price: '$80', note: 'Expires in 1 month' },
+	{ name: '5 Semi-Private Studio Classes', price: '$80', note: 'Limit 3 per class · Expires in 1 month' },
+	{ name: 'Private Yoga Instruction', price: '$50', note: 'One-on-one session' },
+	{ name: 'Private Yoga Instruction Monthly', price: '$160/mo', note: '4 sessions · 1x weekly' },
 ];
 
 const personalTraining = [
-	{ name: '1:1 Personal Training', price: '$40', note: '60-minute session' },
-	{ name: '4 × 60-Minute Sessions', price: '$140', note: 'Use within 1 month' },
-	{ name: 'Partner Training (2:1)', price: '$30/person', note: '60-minute session' },
+	{ name: 'Private 1:1 Personal Training', price: '$40', note: '60-minute session' },
+	{ name: '4 × 60-Minute Sessions', price: '$140', note: 'Expires in 1 month' },
+	{ name: 'Partner Training 2:1', price: '$30/person', note: '60-minute session' },
 	{ name: 'Semi-Private Training (up to 3)', price: '$25/person', note: '60-minute session' },
+];
+
+// Personal Training @ Metroflex (from its OfferingTree offering page)
+const metroflexTraining = [
+	{ name: '1 session per week', price: '$50/session' },
+	{ name: '2 sessions per week', price: '$45/session' },
+	{ name: '3 sessions per week', price: '$40/session' },
 ];
 ---
 
@@ -73,19 +83,15 @@ const personalTraining = [
 			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
 				Memberships
 			</h2>
-			<p class="mt-2 text-brand-silver text-center text-sm">Introductory pricing available for your first 3 months.</p>
-			<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+						<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 				{memberships.map(m => (
-					<div class:list={[
-						'border p-8 flex flex-col transition-colors',
-						m.featured ? 'border-brand-cyan' : 'border-white/10 hover:border-brand-cyan',
-					]}>
-						{m.featured && <p class="text-brand-cyan uppercase tracking-widest text-xs mb-3">Most Popular</p>}
-						<h3 class="font-display text-2xl font-bold uppercase tracking-widest">{m.name}</h3>
+					<div class="rounded-xl border border-white/10 bg-white/[0.03] p-7 flex flex-col hover:border-brand-cyan transition-colors">
+						<h3 class="font-display text-xl font-bold uppercase tracking-wide leading-tight">{m.name}</h3>
 						<p class="mt-4">
 							<span class="font-display text-4xl font-bold">{m.price}</span>
 							<span class="text-brand-silver text-sm">/month</span>
 						</p>
+						{m.intro && <p class="mt-2 text-brand-cyan text-xs uppercase tracking-widest">Intro: {m.intro}</p>}
 						<ul class="mt-6 space-y-3 text-sm text-brand-silver leading-relaxed">
 							{m.features.map(f => (
 								<li class="flex gap-2"><span class="text-brand-cyan">✓</span><span>{f}</span></li>
@@ -99,7 +105,7 @@ const personalTraining = [
 		<!-- CLASS PACKAGES + PERSONAL TRAINING -->
 		<div class="mt-24 grid gap-16 md:grid-cols-2">
 			<section>
-				<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Class Packages</h2>
+				<h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase">Class &amp; Private Yoga Packages</h2>
 				<ul class="mt-6 divide-y divide-white/10 border-y border-white/10">
 					{classPackages.map(p => (
 						<li class="py-4 flex items-baseline justify-between gap-4">
@@ -126,6 +132,15 @@ const personalTraining = [
 						</li>
 					))}
 				</ul>
+				<h3 class="mt-10 font-display text-lg font-bold uppercase tracking-widest">Personal Training @ Metroflex</h3>
+				<ul class="mt-4 divide-y divide-white/10 border-y border-white/10">
+					{metroflexTraining.map(p => (
+						<li class="py-4 flex items-baseline justify-between gap-4">
+							<span class="text-white">{p.name}</span>
+							<span class="font-display text-xl font-bold whitespace-nowrap">{p.price}</span>
+						</li>
+					))}
+				</ul>
 			</section>
 		</div>
 
@@ -143,7 +158,7 @@ const personalTraining = [
 				Purchase a membership or package below.
 			</p>
 			<div class="mt-10 max-w-3xl mx-auto">
-				<OfferingTreeEmbed path="offering_packages" id="ot-packages-embed" title="Iron Flow packages and memberships" />
+				<OfferingTreeEmbed path="offering_packages" id="ot-packages-embed" title="Iron Flow packages and memberships" maxHeight={720} />
 			</div>
 		</div>
 	</main>

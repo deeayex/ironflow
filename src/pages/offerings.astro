@@ -3,44 +3,41 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
 
+// Class names, locations and descriptions match OfferingTree
+// (ironflow.offeringtree.com/offerings). Days and times live on the schedule.
 const classes = [
 	{
-		name: 'Rise + Flow',
-		where: 'Studio · 300 E Main, Downtown Ardmore',
-		description: 'Energize your body, mobilize your mind, and rise strong. Start your day with intention.',
+		name: 'Rise and Flow',
+		where: 'Iron Flow Studio or Virtual · 45 min',
+		description: 'Start your day with intentional movement, breath, and energy. An all-levels morning yoga class designed to gently wake up the body, improve mobility and flexibility, build stability, and prepare you for the day ahead.',
 	},
 	{
-		name: 'Lunch Power Flow',
-		where: 'Metroflex Gym',
-		description: 'Refresh. Refocus. Recharge. A focused, high-energy class to build strength, improve mobility, and power through your day.',
+		name: 'Lunch Time Power Flow',
+		where: 'Metroflex Ardmore or Virtual · 40 min',
+		description: 'A midday power flow from 12:10 to 12:50 PM. Refresh, refocus, and recharge with a focused class to build strength, improve mobility, and power through your day.',
 	},
 	{
 		name: 'Post Work Day Flow',
-		where: 'Metroflex Gym',
-		description: 'Unwind. Stretch. Reset. Release tension and recharge your body and mind for deep recovery.',
+		where: 'Iron Flow Studio or Virtual · 60 min',
+		description: 'Unwind, stretch, and reset after work. Release tension and recharge your body and mind.',
 	},
 	{
 		name: 'Full Body Flow',
-		where: 'Metroflex Gym',
-		description: 'Move. Strengthen. Thrive. A full body experience combining strength, mobility, and mindful movement.',
+		where: 'Iron Flow Studio or Virtual · 60 min',
+		description: 'An all-levels yoga class designed to move the entire body through a balanced combination of strength, mobility, flexibility, balance, and breathwork.',
 	},
 	{
-		name: 'Sunrise Lake Yoga',
-		where: 'Lake Murray',
-		description: 'Greet the day outdoors with breath, mobility, and flow by the water.',
-	},
-	{
-		name: 'Reset + Restore',
-		where: 'Lake Murray',
-		description: 'Release tension, restore balance, and recharge your body and mind for the week ahead.',
+		name: 'Reset and Restore',
+		where: 'Iron Flow Studio or Virtual · Sunday evenings · 60 min',
+		description: 'End the weekend with intentional movement and a chance to slow down. A calming, all-levels class focused on gentle stretching, mobility, breathwork, and relaxation to prepare your body and mind for the week ahead.',
 	},
 ];
 
 const more = [
-	{ name: 'Virtual Classes', description: 'Join live classes from home, plus an on-demand library you can stream anytime.' },
-	{ name: 'Personal Training', description: 'One-on-one, partner, and semi-private training tailored to your goals, at your pace.' },
-	{ name: 'Meditation & Specialty', description: 'Meditation, sound healing, trauma-informed yoga, and more.' },
-	{ name: 'Private, Outdoor & Boat Yoga', description: 'Perfect for small groups, events, and special occasions. Pricing available on request.' },
+	{ name: 'Private Yoga Instruction', description: 'A personalized one-on-one experience designed around your body, goals, experience level, and comfort.' },
+	{ name: 'Private Meditation Session', description: 'A quiet, individualized space to slow down, breathe, and reconnect. No experience needed.' },
+	{ name: 'Personal Training', description: 'One-on-one training at Metroflex, or privately at the Main Rail studio and select outdoor locations.' },
+	{ name: 'Specialty Classes & Events', description: 'Private, outdoor, and boat yoga for small groups, events, and special occasions. Pricing on request.' },
 ];
 ---
 
@@ -58,7 +55,7 @@ const more = [
 
 		<!-- CLASSES -->
 		<div class="mt-16">
-			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Studio · Gym · Outdoors</p>
+			<p class="text-brand-cyan uppercase tracking-widest text-sm text-center">Studio · Metroflex · Virtual</p>
 			<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
 				Classes
 			</h2>
@@ -82,7 +79,7 @@ const more = [
 		<!-- MORE WAYS -->
 		<div class="mt-24">
 			<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight uppercase text-center">
-				More Ways To Train
+				Private Sessions &amp; Specialty
 			</h2>
 			<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 				{more.map(item => (
@@ -103,7 +100,7 @@ const more = [
 				300 E Main, Suite 5, Ardmore, OK
 			</p>
 			<div class="mt-10 max-w-3xl mx-auto">
-				<OfferingTreeEmbed path="offerings" id="ot-offerings-embed" title="Iron Flow offerings" />
+				<OfferingTreeEmbed path="offerings" id="ot-offerings-embed" title="Iron Flow offerings" maxHeight={720} />
 			</div>
 			<p class="mt-10 text-brand-silver">
 				Looking for pricing? <a href="/packages" class="text-brand-cyan hover:text-white transition-colors">See packages &amp; memberships →</a>
