@@ -2,28 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { Image } from 'astro:assets';
-import { gallery } from '../data/photos';
+import { gallerySections } from '../data/photos';
 ---
 
 <Layout>
-	<PageHeader title="Photos & Content" subtitle="Inside Iron Flow Studio" />
+	<PageHeader title="Photos & Content" subtitle="Studio · Lake · Rail Yard" />
 
 	<main class="max-w-6xl mx-auto px-6 py-16">
 		<!-- GALLERY: columns keep each photo's natural shape -->
-		<div class="columns-1 sm:columns-2 lg:columns-3 gap-5">
-			{gallery.map(photo => (
-				<figure class="mb-5 break-inside-avoid overflow-hidden rounded-xl border border-white/10">
-					<Image
-						src={photo.src}
-						alt={photo.alt}
-						widths={[480, 800, 1200]}
-						sizes="(min-width: 1024px) 370px, (min-width: 640px) 50vw, 100vw"
-						class="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
-					/>
-				</figure>
-			))}
-		</div>
-		<p class="mt-6 text-center text-xs text-brand-silver uppercase tracking-widest">Photos by Allie Gash</p>
+		{gallerySections.map((section, i) => (
+			<section class:list={[i > 0 && 'mt-20 border-t border-white/10 pt-16']}>
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-8">
+					<h2 class="section-title">{section.title}</h2>
+					<p class="text-xs text-brand-silver uppercase tracking-widest">{section.credit}</p>
+				</div>
+				<div class="columns-1 sm:columns-2 lg:columns-3 gap-5">
+					{section.photos.map(photo => (
+						<figure class="mb-5 break-inside-avoid overflow-hidden rounded-xl border border-white/10">
+							<Image
+								src={photo.src}
+								alt={photo.alt}
+								widths={[480, 800, 1200]}
+								sizes="(min-width: 1024px) 370px, (min-width: 640px) 50vw, 100vw"
+								class="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
+							/>
+						</figure>
+					))}
+				</div>
+			</section>
+		))}
 
 		<!-- SOCIAL -->
 		<section class="mt-20 border-t border-white/10 pt-16 text-center">

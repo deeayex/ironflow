@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { Image } from 'astro:assets';
-import brandi from '../assets/brandi.png';
+import { photos } from '../data/photos';
 
 const credentials = [
 	{ title: 'NASM Certified Personal Trainer', detail: 'National Academy of Sports Medicine' },
@@ -38,10 +38,11 @@ const credentials = [
 			<!-- PHOTO -->
 			<div class="md:col-span-2 md:sticky md:top-8">
 				<Image
-					src={brandi}
+					src={photos.brandiPortrait.src}
 					alt="Brandi Kelty, owner and instructor of Iron Flow Health & Wellness"
-					width={560}
-					class="w-full max-w-sm mx-auto md:max-w-none rounded-lg border border-white/10"
+					widths={[480, 800, 1100]}
+					sizes="(min-width: 768px) 420px, 100vw"
+					class="w-full max-w-sm mx-auto md:max-w-none rounded-xl border border-white/10"
 				/>
 				<div class="mt-6 text-center">
 					<p class="font-display text-2xl font-bold uppercase tracking-wide">Brandi Kelty</p>
@@ -71,6 +72,18 @@ const credentials = [
 				</p>
 			</div>
 		</div>
+
+		<!-- PHOTO STRIP -->
+		<section class="mt-24 grid gap-4 grid-cols-2 md:grid-cols-3">
+			{[photos.railStandingSplit, photos.brandiCrescent, photos.railNamaste].map((p, i) => (
+				<div class:list={['overflow-hidden rounded-xl aspect-[2/3]', i === 1 && 'hidden md:block']}>
+					<Image src={p.src} alt={p.alt} widths={[400, 700]} sizes="(min-width: 768px) 360px, 50vw" class="w-full h-full object-cover" />
+				</div>
+			))}
+		</section>
+		<p class="mt-4 text-center text-xs text-brand-silver uppercase tracking-widest">
+			<a href="/photos" class="hover:text-brand-cyan transition-colors">More photos →</a>
+		</p>
 
 		<!-- TAGLINE + CTA -->
 		<section class="mt-24 border-t border-white/10 pt-20 text-center">

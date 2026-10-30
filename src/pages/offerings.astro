@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import OfferingTreeEmbed from '../components/OfferingTreeEmbed.astro';
+import { Image } from 'astro:assets';
+import { photos } from '../data/photos';
 
 // Class names, locations and descriptions match OfferingTree
 // (ironflow.offeringtree.com/offerings). Days and times live on the schedule.
@@ -90,6 +92,24 @@ const more = [
 				))}
 			</div>
 		</div>
+
+		<!-- BOAT YOGA -->
+		<section class="mt-24 grid gap-8 md:grid-cols-2 items-center">
+			<div class="overflow-hidden rounded-xl">
+				<Image src={photos.boatArmsUp.src} alt={photos.boatArmsUp.alt} widths={[600, 1000, 1400]} sizes="(min-width: 768px) 560px, 100vw" class="w-full h-full object-cover" />
+			</div>
+			<div>
+				<p class="eyebrow">Groups · Events · Special Occasions</p>
+				<h2 class="mt-3 section-title">Private, Outdoor &amp; Boat Yoga</h2>
+				<p class="mt-4 text-brand-silver text-lg leading-relaxed">
+					Take your practice out on the water or outdoors. Perfect for small groups, events, and special occasions. Prices and package specials are available on request.
+				</p>
+				<div class="mt-6 flex flex-col sm:flex-row gap-3">
+					<a href="/contact" class="btn-primary">Ask About Booking</a>
+					<a href="/photos" class="btn-secondary">See Photos</a>
+				</div>
+			</div>
+		</section>
 
 		<!-- OFFERINGTREE -->
 		<div class="mt-24 border-t border-white/10 pt-16 text-center">

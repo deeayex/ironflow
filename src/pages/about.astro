@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { Image } from 'astro:assets';
-import brandi from '../assets/brandi.png';
+import { photos } from '../data/photos';
 
 const pillars = [
 	{ name: 'Strength', description: 'Supporting athletic performance while maintaining healthy movement.' },
@@ -25,7 +25,7 @@ const pillars = [
 			</h2>
 			<a href="/instructor" class="mt-10 inline-flex items-center gap-4 border border-white/10 p-3 pr-6 hover:border-brand-cyan transition-colors text-left">
 				<Image
-					src={brandi}
+					src={photos.brandiPortrait.src}
 					alt="Brandi Kelty"
 					width={64}
 					height={64}
