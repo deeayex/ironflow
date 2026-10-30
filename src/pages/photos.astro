@@ -1,26 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { Image } from 'astro:assets';
+import { gallery } from '../data/photos';
 ---
 
 <Layout>
-	<PageHeader title="Photos & Content" subtitle="On The Mat · In The Gym · At The Lake" />
+	<PageHeader title="Photos & Content" subtitle="Inside Iron Flow Studio" />
 
-	<main class="max-w-3xl mx-auto px-6 py-16 text-center">
-		<p class="text-brand-cyan uppercase tracking-widest text-sm">Coming Soon</p>
-		<h2 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight uppercase">
-			The Gallery Is Being Built
-		</h2>
-		<p class="mt-6 text-brand-silver text-lg leading-relaxed">
-			In the meantime, follow along on Instagram and Facebook for photos, videos, and class updates.
-		</p>
-		<div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-			<a href="https://www.instagram.com/ironflowwellness" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-cyan text-brand-black font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white transition-colors">
-				Instagram
-			</a>
-			<a href="https://www.facebook.com/share/1BfLuTqkZ1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="inline-block border border-white/20 text-white font-display font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-brand-cyan hover:text-brand-cyan transition-colors">
-				Facebook
-			</a>
+	<main class="max-w-6xl mx-auto px-6 py-16">
+		<!-- GALLERY: columns keep each photo's natural shape -->
+		<div class="columns-1 sm:columns-2 lg:columns-3 gap-5">
+			{gallery.map(photo => (
+				<figure class="mb-5 break-inside-avoid overflow-hidden rounded-xl border border-white/10">
+					<Image
+						src={photo.src}
+						alt={photo.alt}
+						widths={[480, 800, 1200]}
+						sizes="(min-width: 1024px) 370px, (min-width: 640px) 50vw, 100vw"
+						class="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
+					/>
+				</figure>
+			))}
 		</div>
+		<p class="mt-6 text-center text-xs text-brand-silver uppercase tracking-widest">Photos by Allie Gash</p>
+
+		<!-- SOCIAL -->
+		<section class="mt-20 border-t border-white/10 pt-16 text-center">
+			<p class="eyebrow">Follow Along</p>
+			<h2 class="mt-3 section-title">More On Social</h2>
+			<p class="mt-4 text-brand-silver text-lg max-w-xl mx-auto leading-relaxed">
+				Class moments, videos, and studio updates on Instagram and Facebook.
+			</p>
+			<div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="https://www.instagram.com/ironflowwellness" target="_blank" rel="noopener noreferrer" class="btn-primary">Instagram</a>
+				<a href="https://www.facebook.com/share/1BfLuTqkZ1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-secondary">Facebook</a>
+			</div>
+		</section>
 	</main>
 </Layout>
